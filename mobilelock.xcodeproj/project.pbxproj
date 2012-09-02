@@ -77,11 +77,11 @@
 		11DBA0EB15F146B100F9293B /* mobilelock */ = {
 			isa = PBXGroup;
 			children = (
+				11DBA10915F41F0800F9293B /* Controllers */,
+				11DBA10815F41EFB00F9293B /* Views */,
+				11DBA10715F41EF600F9293B /* Models */,
 				11DBA0F415F146B100F9293B /* AppDelegate.h */,
 				11DBA0F515F146B100F9293B /* AppDelegate.m */,
-				11DBA0F715F146B100F9293B /* ViewController.h */,
-				11DBA0F815F146B100F9293B /* ViewController.m */,
-				11DBA0FA15F146B100F9293B /* ViewController.xib */,
 				11DBA0EC15F146B100F9293B /* Supporting Files */,
 			);
 			path = mobilelock;
@@ -96,6 +96,30 @@
 				11DBA0F315F146B100F9293B /* mobilelock-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		11DBA10715F41EF600F9293B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		11DBA10815F41EFB00F9293B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				11DBA0FA15F146B100F9293B /* ViewController.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		11DBA10915F41F0800F9293B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				11DBA0F715F146B100F9293B /* ViewController.h */,
+				11DBA0F815F146B100F9293B /* ViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +303,7 @@
 				11DBA10115F146B100F9293B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
