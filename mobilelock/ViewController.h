@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+- (IBAction)buttonMyDoorsPressed:(id)sender;
+- (IBAction)buttonManageDoorsDevicesPressed:(id)sender;
+- (IBAction)buttonChangePasswordPressed:(id)sender;
 
 @end

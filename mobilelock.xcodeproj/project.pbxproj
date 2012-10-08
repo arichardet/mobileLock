@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1125839D15F4265C0031E7C1 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1125839C15F4265C0031E7C1 /* MainWindow.xib */; };
+		112583A215F42A500031E7C1 /* MyDoorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 112583A015F42A500031E7C1 /* MyDoorsViewController.m */; };
+		112583A315F42A500031E7C1 /* MyDoorsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 112583A115F42A500031E7C1 /* MyDoorsView.xib */; };
+		112583A715F42D7E0031E7C1 /* ManageDoorsDevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 112583A515F42D7E0031E7C1 /* ManageDoorsDevicesViewController.m */; };
+		112583A815F42D7E0031E7C1 /* ManageDoorsDevicesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 112583A615F42D7E0031E7C1 /* ManageDoorsDevicesView.xib */; };
+		1156B1191606CAB900CB73B8 /* DoorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1156B1181606CAB900CB73B8 /* DoorView.xib */; };
+		1156B11D1606CAD200CB73B8 /* DoorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1156B11C1606CAD200CB73B8 /* DoorViewController.m */; };
+		1156B1201606CB0200CB73B8 /* Door.m in Sources */ = {isa = PBXBuildFile; fileRef = 1156B11F1606CB0200CB73B8 /* Door.m */; };
 		11DBA0E615F146B100F9293B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11DBA0E515F146B100F9293B /* UIKit.framework */; };
 		11DBA0E815F146B100F9293B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11DBA0E715F146B100F9293B /* Foundation.framework */; };
 		11DBA0EA15F146B100F9293B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11DBA0E915F146B100F9293B /* CoreGraphics.framework */; };
@@ -18,6 +26,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1125839C15F4265C0031E7C1 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		1125839F15F42A500031E7C1 /* MyDoorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDoorsViewController.h; sourceTree = "<group>"; };
+		112583A015F42A500031E7C1 /* MyDoorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDoorsViewController.m; sourceTree = "<group>"; };
+		112583A115F42A500031E7C1 /* MyDoorsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyDoorsView.xib; sourceTree = "<group>"; };
+		112583A415F42D7E0031E7C1 /* ManageDoorsDevicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageDoorsDevicesViewController.h; sourceTree = "<group>"; };
+		112583A515F42D7E0031E7C1 /* ManageDoorsDevicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageDoorsDevicesViewController.m; sourceTree = "<group>"; };
+		112583A615F42D7E0031E7C1 /* ManageDoorsDevicesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageDoorsDevicesView.xib; sourceTree = "<group>"; };
+		1156B1181606CAB900CB73B8 /* DoorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoorView.xib; sourceTree = "<group>"; };
+		1156B11B1606CAD200CB73B8 /* DoorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoorViewController.h; sourceTree = "<group>"; };
+		1156B11C1606CAD200CB73B8 /* DoorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoorViewController.m; sourceTree = "<group>"; };
+		1156B11E1606CB0200CB73B8 /* Door.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Door.h; sourceTree = "<group>"; };
+		1156B11F1606CB0200CB73B8 /* Door.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Door.m; sourceTree = "<group>"; };
 		11DBA0E115F146B100F9293B /* mobilelock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mobilelock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11DBA0E515F146B100F9293B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		11DBA0E715F146B100F9293B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -101,6 +121,8 @@
 		11DBA10715F41EF600F9293B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1156B11E1606CB0200CB73B8 /* Door.h */,
+				1156B11F1606CB0200CB73B8 /* Door.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -108,7 +130,11 @@
 		11DBA10815F41EFB00F9293B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				112583A615F42D7E0031E7C1 /* ManageDoorsDevicesView.xib */,
 				11DBA0FA15F146B100F9293B /* ViewController.xib */,
+				112583A115F42A500031E7C1 /* MyDoorsView.xib */,
+				1125839C15F4265C0031E7C1 /* MainWindow.xib */,
+				1156B1181606CAB900CB73B8 /* DoorView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -118,6 +144,12 @@
 			children = (
 				11DBA0F715F146B100F9293B /* ViewController.h */,
 				11DBA0F815F146B100F9293B /* ViewController.m */,
+				1125839F15F42A500031E7C1 /* MyDoorsViewController.h */,
+				112583A015F42A500031E7C1 /* MyDoorsViewController.m */,
+				112583A415F42D7E0031E7C1 /* ManageDoorsDevicesViewController.h */,
+				112583A515F42D7E0031E7C1 /* ManageDoorsDevicesViewController.m */,
+				1156B11B1606CAD200CB73B8 /* DoorViewController.h */,
+				1156B11C1606CAD200CB73B8 /* DoorViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -175,6 +207,10 @@
 			files = (
 				11DBA0F015F146B100F9293B /* InfoPlist.strings in Resources */,
 				11DBA0FC15F146B100F9293B /* ViewController.xib in Resources */,
+				1125839D15F4265C0031E7C1 /* MainWindow.xib in Resources */,
+				112583A315F42A500031E7C1 /* MyDoorsView.xib in Resources */,
+				112583A815F42D7E0031E7C1 /* ManageDoorsDevicesView.xib in Resources */,
+				1156B1191606CAB900CB73B8 /* DoorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +224,10 @@
 				11DBA0F215F146B100F9293B /* main.m in Sources */,
 				11DBA0F615F146B100F9293B /* AppDelegate.m in Sources */,
 				11DBA0F915F146B100F9293B /* ViewController.m in Sources */,
+				112583A215F42A500031E7C1 /* MyDoorsViewController.m in Sources */,
+				112583A715F42D7E0031E7C1 /* ManageDoorsDevicesViewController.m in Sources */,
+				1156B11D1606CAD200CB73B8 /* DoorViewController.m in Sources */,
+				1156B1201606CB0200CB73B8 /* Door.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

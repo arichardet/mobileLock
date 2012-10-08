@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "MyDoorsViewController.h"
+#import "ManageDoorsDevicesViewController.h"
 
 @interface ViewController ()
 
@@ -31,4 +33,18 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (IBAction)buttonMyDoorsPressed:(id)sender {
+    MyDoorsViewController *vc = [[MyDoorsViewController alloc] initWithNibName:@"MyDoorsView" bundle:nil];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)buttonManageDoorsDevicesPressed:(id)sender {
+    ManageDoorsDevicesViewController *vc = [[ManageDoorsDevicesViewController alloc] initWithNibName:@"ManageDoorsDevicesView" bundle:nil];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)buttonChangePasswordPressed:(id)sender {
+}
 @end
