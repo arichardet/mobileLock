@@ -19,21 +19,26 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
     return self;
 }
 
+#pragma mark -
+#pragma mark View Lifecycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
     self.title = @"My Doors";
     
-    NSURLRequest *theRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8000/door/JSON"]
-                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                          timeoutInterval:60.0];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *deviceToken = [defaults objectForKey:@"deviceToken"];
+    NSLog(@"My token is: %@", deviceToken);
+    deviceToken = [deviceToken stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    
+    NSString *urlStr = [NSString stringWithFormat:@"http://servo.local:8000/device/doors/%@", deviceToken];
+    NSURL *url = [NSURL URLWithString:urlStr];
+    NSURLRequest *theRequest=[NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0];
+    
     // create the connection with the request
     // and start loading the data
     urlConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
@@ -43,13 +48,27 @@
         // receivedData is declared as a method instance elsewhere
         receivedData=[NSMutableData data];
     } else {
-        // inform the user that the download could not be made
+        #warning TODO inform the user that the download could not be made
     }
     
     self.doorsTableView.delegate = self;
     self.doorsTableView.dataSource = self;
 }
 
+
+- (void)viewDidUnload
+{
+    [self setDoorsTableView:nil];
+    [super viewDidUnload];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark -
+#pragma mark UITableView Delegates
 - (UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"DoorCell";
     
@@ -63,7 +82,6 @@
         
     cell.textLabel.text = [dict objectForKey:@"name"];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",[dict objectForKey:@"zip"]];
-    
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
@@ -82,39 +100,28 @@
     
 }
 
+#pragma mark -
+#pragma mark NSURLConnection Delegates
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     if (connection == urlConnection)
     {
-        NSLog(@"Received Data");
-        NSError *error;
-        doorsDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONWritingPrettyPrinted error:&error];
-        NSLog(@"Response: %@",[doorsDict description]);
-        NSLog(@"%@",[error description]);
+        [receivedData appendData:data];
     }
-    
-    [self.doorsTableView reloadData];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     if (connection == urlConnection)
     {
-
+        NSLog(@"Received Data");
+        NSError *error;
+        doorsDict = [NSJSONSerialization JSONObjectWithData:receivedData options:NSJSONWritingPrettyPrinted error:&error];
+        NSLog(@"Response: %@",[doorsDict description]);
+        NSLog(@"%@",[error description]);
     }
+    [self.doorsTableView reloadData];
 }
 
-- (void)viewDidUnload
-{
-    [self setDoorsTableView:nil];
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
 
 @end

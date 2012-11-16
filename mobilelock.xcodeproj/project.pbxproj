@@ -10,11 +10,14 @@
 		1125839D15F4265C0031E7C1 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1125839C15F4265C0031E7C1 /* MainWindow.xib */; };
 		112583A215F42A500031E7C1 /* MyDoorsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 112583A015F42A500031E7C1 /* MyDoorsViewController.m */; };
 		112583A315F42A500031E7C1 /* MyDoorsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 112583A115F42A500031E7C1 /* MyDoorsView.xib */; };
-		112583A715F42D7E0031E7C1 /* ManageDoorsDevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 112583A515F42D7E0031E7C1 /* ManageDoorsDevicesViewController.m */; };
 		112583A815F42D7E0031E7C1 /* ManageDoorsDevicesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 112583A615F42D7E0031E7C1 /* ManageDoorsDevicesView.xib */; };
 		1156B1191606CAB900CB73B8 /* DoorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1156B1181606CAB900CB73B8 /* DoorView.xib */; };
 		1156B11D1606CAD200CB73B8 /* DoorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1156B11C1606CAD200CB73B8 /* DoorViewController.m */; };
 		1156B1201606CB0200CB73B8 /* Door.m in Sources */ = {isa = PBXBuildFile; fileRef = 1156B11F1606CB0200CB73B8 /* Door.m */; };
+		11AF2C1E16560DD600C3E399 /* buttonChangePassword.png in Resources */ = {isa = PBXBuildFile; fileRef = 11AF2C1A16560DD500C3E399 /* buttonChangePassword.png */; };
+		11AF2C1F16560DD600C3E399 /* buttonMyDoors.png in Resources */ = {isa = PBXBuildFile; fileRef = 11AF2C1B16560DD500C3E399 /* buttonMyDoors.png */; };
+		11AF2C2016560DD600C3E399 /* buttonRegisterDevice.png in Resources */ = {isa = PBXBuildFile; fileRef = 11AF2C1C16560DD500C3E399 /* buttonRegisterDevice.png */; };
+		11AF2C2116560DD600C3E399 /* buttonUnlockDoor.png in Resources */ = {isa = PBXBuildFile; fileRef = 11AF2C1D16560DD500C3E399 /* buttonUnlockDoor.png */; };
 		11DBA0E615F146B100F9293B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11DBA0E515F146B100F9293B /* UIKit.framework */; };
 		11DBA0E815F146B100F9293B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11DBA0E715F146B100F9293B /* Foundation.framework */; };
 		11DBA0EA15F146B100F9293B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11DBA0E915F146B100F9293B /* CoreGraphics.framework */; };
@@ -23,6 +26,10 @@
 		11DBA0F615F146B100F9293B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DBA0F515F146B100F9293B /* AppDelegate.m */; };
 		11DBA0F915F146B100F9293B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11DBA0F815F146B100F9293B /* ViewController.m */; };
 		11DBA0FC15F146B100F9293B /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11DBA0FA15F146B100F9293B /* ViewController.xib */; };
+		11F9DFFE16403949003F0078 /* RegisterDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 11F9DFFC16403949003F0078 /* RegisterDeviceViewController.m */; };
+		11F9DFFF16403949003F0078 /* RegisterDeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11F9DFFD16403949003F0078 /* RegisterDeviceViewController.xib */; };
+		11F9E013164E1645003F0078 /* MobileLockIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 11F9E012164E1645003F0078 /* MobileLockIcon.png */; };
+		11F9E015164E16AE003F0078 /* MobileLockIconSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 11F9E014164E16AE003F0078 /* MobileLockIconSmall.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,14 +37,16 @@
 		1125839F15F42A500031E7C1 /* MyDoorsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDoorsViewController.h; sourceTree = "<group>"; };
 		112583A015F42A500031E7C1 /* MyDoorsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDoorsViewController.m; sourceTree = "<group>"; };
 		112583A115F42A500031E7C1 /* MyDoorsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyDoorsView.xib; sourceTree = "<group>"; };
-		112583A415F42D7E0031E7C1 /* ManageDoorsDevicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageDoorsDevicesViewController.h; sourceTree = "<group>"; };
-		112583A515F42D7E0031E7C1 /* ManageDoorsDevicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageDoorsDevicesViewController.m; sourceTree = "<group>"; };
 		112583A615F42D7E0031E7C1 /* ManageDoorsDevicesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageDoorsDevicesView.xib; sourceTree = "<group>"; };
 		1156B1181606CAB900CB73B8 /* DoorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoorView.xib; sourceTree = "<group>"; };
 		1156B11B1606CAD200CB73B8 /* DoorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoorViewController.h; sourceTree = "<group>"; };
 		1156B11C1606CAD200CB73B8 /* DoorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoorViewController.m; sourceTree = "<group>"; };
 		1156B11E1606CB0200CB73B8 /* Door.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Door.h; sourceTree = "<group>"; };
 		1156B11F1606CB0200CB73B8 /* Door.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Door.m; sourceTree = "<group>"; };
+		11AF2C1A16560DD500C3E399 /* buttonChangePassword.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonChangePassword.png; sourceTree = "<group>"; };
+		11AF2C1B16560DD500C3E399 /* buttonMyDoors.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonMyDoors.png; sourceTree = "<group>"; };
+		11AF2C1C16560DD500C3E399 /* buttonRegisterDevice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonRegisterDevice.png; sourceTree = "<group>"; };
+		11AF2C1D16560DD500C3E399 /* buttonUnlockDoor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonUnlockDoor.png; sourceTree = "<group>"; };
 		11DBA0E115F146B100F9293B /* mobilelock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mobilelock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11DBA0E515F146B100F9293B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		11DBA0E715F146B100F9293B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -51,6 +60,11 @@
 		11DBA0F715F146B100F9293B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		11DBA0F815F146B100F9293B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		11DBA0FB15F146B100F9293B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		11F9DFFB16403949003F0078 /* RegisterDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterDeviceViewController.h; sourceTree = "<group>"; };
+		11F9DFFC16403949003F0078 /* RegisterDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterDeviceViewController.m; sourceTree = "<group>"; };
+		11F9DFFD16403949003F0078 /* RegisterDeviceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterDeviceViewController.xib; sourceTree = "<group>"; };
+		11F9E012164E1645003F0078 /* MobileLockIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MobileLockIcon.png; path = ../MobileLockIcon.png; sourceTree = "<group>"; };
+		11F9E014164E16AE003F0078 /* MobileLockIconSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MobileLockIconSmall.png; path = ../MobileLockIconSmall.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +124,12 @@
 		11DBA0EC15F146B100F9293B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				11AF2C1A16560DD500C3E399 /* buttonChangePassword.png */,
+				11AF2C1B16560DD500C3E399 /* buttonMyDoors.png */,
+				11AF2C1C16560DD500C3E399 /* buttonRegisterDevice.png */,
+				11AF2C1D16560DD500C3E399 /* buttonUnlockDoor.png */,
+				11F9E014164E16AE003F0078 /* MobileLockIconSmall.png */,
+				11F9E012164E1645003F0078 /* MobileLockIcon.png */,
 				11DBA0ED15F146B100F9293B /* mobilelock-Info.plist */,
 				11DBA0EE15F146B100F9293B /* InfoPlist.strings */,
 				11DBA0F115F146B100F9293B /* main.m */,
@@ -134,6 +154,7 @@
 				11DBA0FA15F146B100F9293B /* ViewController.xib */,
 				112583A115F42A500031E7C1 /* MyDoorsView.xib */,
 				1125839C15F4265C0031E7C1 /* MainWindow.xib */,
+				11F9DFFD16403949003F0078 /* RegisterDeviceViewController.xib */,
 				1156B1181606CAB900CB73B8 /* DoorView.xib */,
 			);
 			name = Views;
@@ -146,10 +167,10 @@
 				11DBA0F815F146B100F9293B /* ViewController.m */,
 				1125839F15F42A500031E7C1 /* MyDoorsViewController.h */,
 				112583A015F42A500031E7C1 /* MyDoorsViewController.m */,
-				112583A415F42D7E0031E7C1 /* ManageDoorsDevicesViewController.h */,
-				112583A515F42D7E0031E7C1 /* ManageDoorsDevicesViewController.m */,
 				1156B11B1606CAD200CB73B8 /* DoorViewController.h */,
 				1156B11C1606CAD200CB73B8 /* DoorViewController.m */,
+				11F9DFFB16403949003F0078 /* RegisterDeviceViewController.h */,
+				11F9DFFC16403949003F0078 /* RegisterDeviceViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -211,6 +232,13 @@
 				112583A315F42A500031E7C1 /* MyDoorsView.xib in Resources */,
 				112583A815F42D7E0031E7C1 /* ManageDoorsDevicesView.xib in Resources */,
 				1156B1191606CAB900CB73B8 /* DoorView.xib in Resources */,
+				11F9DFFF16403949003F0078 /* RegisterDeviceViewController.xib in Resources */,
+				11F9E013164E1645003F0078 /* MobileLockIcon.png in Resources */,
+				11F9E015164E16AE003F0078 /* MobileLockIconSmall.png in Resources */,
+				11AF2C1E16560DD600C3E399 /* buttonChangePassword.png in Resources */,
+				11AF2C1F16560DD600C3E399 /* buttonMyDoors.png in Resources */,
+				11AF2C2016560DD600C3E399 /* buttonRegisterDevice.png in Resources */,
+				11AF2C2116560DD600C3E399 /* buttonUnlockDoor.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,9 +253,9 @@
 				11DBA0F615F146B100F9293B /* AppDelegate.m in Sources */,
 				11DBA0F915F146B100F9293B /* ViewController.m in Sources */,
 				112583A215F42A500031E7C1 /* MyDoorsViewController.m in Sources */,
-				112583A715F42D7E0031E7C1 /* ManageDoorsDevicesViewController.m in Sources */,
 				1156B11D1606CAD200CB73B8 /* DoorViewController.m in Sources */,
 				1156B1201606CB0200CB73B8 /* Door.m in Sources */,
+				11F9DFFE16403949003F0078 /* RegisterDeviceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +289,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -276,6 +305,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -308,7 +338,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mobilelock/mobilelock-Prefix.pch";
 				INFOPLIST_FILE = "mobilelock/mobilelock-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = mobilelock;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -319,7 +349,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "mobilelock/mobilelock-Prefix.pch";
 				INFOPLIST_FILE = "mobilelock/mobilelock-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = mobilelock;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

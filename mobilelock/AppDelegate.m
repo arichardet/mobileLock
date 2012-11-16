@@ -24,6 +24,7 @@
     
     [self.window addSubview:self.navViewController.view];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

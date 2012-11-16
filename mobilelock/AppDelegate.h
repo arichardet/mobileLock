@@ -11,6 +11,12 @@
 @class ViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+{
+    NSMutableData *receivedData;
+    NSURLConnection *urlConnectionRegister;
+    NSURLConnection *urlConnectionStatus;
+    NSDictionary *responseDict;
+}
 
 @property (strong, nonatomic) IBOutlet UIWindow *window;
 

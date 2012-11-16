@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "Door.h"
 
-@interface DoorViewController : UIViewController
+@interface DoorViewController : UIViewController <NSURLConnectionDataDelegate,NSURLConnectionDelegate>
 {
     Door *door;
     NSURLConnection *urlConnectionUnlock;
     NSURLConnection *urlConnectionStatus;
-    NSMutableData *receivedData;
+    NSMutableData *statusReceivedData;
+    NSMutableData *unlockReceivedData;
     NSDictionary *responseDict;
 }
 

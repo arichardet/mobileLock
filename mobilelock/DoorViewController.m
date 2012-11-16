@@ -27,16 +27,14 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
     return self;
 }
 
+#pragma mark -
+#pragma mark View Lifecycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
     self.doorNameLabel.text = door.name;
     self.doorStreetNumberLabel.text = door.streetNumber;
     self.doorStreetNameLabel.text = door.streetName;
@@ -44,9 +42,18 @@
     self.doorStateLabel.text = door.state;
     self.doorZipLabel.text = door.zip;
     
-    NSString *urlStr = [NSString stringWithFormat:@"http://localhost:8000/dooraccess/status/%d",self.door.id];
+    self.buttonDoorUnlock.enabled = NO;
+    [self.buttonDoorUnlock setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
+    self.doorUnlockStatusLabel.text = @"Connection Not Made";
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *deviceToken = [defaults objectForKey:@"deviceToken"];
+    NSLog(@"My token is: %@", deviceToken);
+    deviceToken = [deviceToken stringByReplacingOccurrencesOfString:@"-" withString:@""];
+
+    NSString *urlStr = [NSString stringWithFormat:@"http://servo.local:8000/dooraccess/status/%d/%@",self.door.id, deviceToken];
     NSURL *url = [NSURL URLWithString:urlStr];
-    NSURLRequest *theRequest=[NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSURLRequest *theRequest=[NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0];
     
     NSLog(@"%@",urlStr);
     // create the connection with the request
@@ -55,13 +62,11 @@
     if(urlConnectionStatus) {
         // Create the NSMutableData that will hold
         // the received data
-        receivedData = [NSMutableData data];
-        
-        
+        statusReceivedData = [NSMutableData data];
     }
     else {
         // inform the user the connection could not be made
-        self.doorUnlockStatusLabel.text = @"Connection not Made";
+        self.doorUnlockStatusLabel.text = @"Server Offline";
     }
 }
 
@@ -76,7 +81,6 @@
     [self setDoorUnlockStatusLabel:nil];
     [self setButtonDoorUnlock:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -84,41 +88,59 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark -
+#pragma mark IBAction
 - (IBAction)doorUnlockButtonPressed:(id)sender {
     
-    NSString *urlStr = [NSString stringWithFormat:@"http://localhost:8000/dooraccess/unlock/%d",self.door.id];
-    NSURL *url = [NSURL URLWithString:urlStr];
-    NSURLRequest *theRequest=[NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *deviceToken = [defaults objectForKey:@"deviceToken"];
+    deviceToken = [deviceToken stringByReplacingOccurrencesOfString:@"-" withString:@""];
     
-    NSLog(@"%@",urlStr);
+    NSString *urlStr = [NSString stringWithFormat:@"http://servo.local:8000/dooraccess/unlock/%d/%@",self.door.id, deviceToken];
+    NSURL *url = [NSURL URLWithString:urlStr];
+    NSURLRequest *theRequest=[NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0];
+    
     // create the connection with the request
     // and start loading the data
     urlConnectionUnlock = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
     if(urlConnectionUnlock) {
         // Create the NSMutableData that will hold
         // the received data
-        receivedData = [NSMutableData data];
+        unlockReceivedData = [NSMutableData data];
+        //self.doorUnlockStatusLabel.text = @"Unlock Request Sent....";
     }
     else {
         // inform the user the connection could not be made
-        self.doorUnlockStatusLabel.text = @"Connection not Made";
+        //self.doorUnlockStatusLabel.text = @"Unlock Not Sent.....";
     }
-    
-    
 }
 
+#pragma mark -
+#pragma mark NSURLConnection Delegates
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
+    if (connection == urlConnectionUnlock) {
+        [unlockReceivedData appendData:data];
+    }
+    else if(connection == urlConnectionStatus) {
+        [statusReceivedData appendData:data];
+    }
+}
+
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection {
     if (connection == urlConnectionUnlock)
     {
-        NSLog(@"Received Data");
         NSError *error;
-        responseDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONWritingPrettyPrinted error:&error];
-        NSLog(@"Response: %@",[responseDict description]);
+        responseDict = [NSJSONSerialization JSONObjectWithData:unlockReceivedData options:NSJSONWritingPrettyPrinted error:&error];
         
         if (error) {
             self.doorUnlockStatusLabel.text = @"Server Failure";
         }
+        else {
+            self.buttonDoorUnlock.enabled = YES;
+            [self.buttonDoorUnlock setTitleColor:[UIColor blueColor] forState:UIControlStateDisabled];
+            self.doorUnlockStatusLabel.text = @"Unlock Request Sent";
+        }
         
         NSString *str = [responseDict objectForKey:@"result"];
         
@@ -129,26 +151,32 @@
         }
         
     }
-    else    //connection == urlConnectionStatus
+    else if(connection == urlConnectionStatus)
     {
-        NSLog(@"Received Data");
+        NSString *s = [[NSString alloc] initWithData:statusReceivedData encoding:NSASCIIStringEncoding];
+        NSLog(@"Received Data:%@",s);
         NSError *error;
-        responseDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONWritingPrettyPrinted error:&error];
+        responseDict = [NSJSONSerialization JSONObjectWithData:statusReceivedData options:NSJSONWritingPrettyPrinted error:&error];
         NSLog(@"Response: %@",[responseDict description]);
         
         if (error) {
-            self.doorUnlockStatusLabel.text = @"Arduino Offline";
+            self.doorUnlockStatusLabel.text = @"Server Failure";
             self.buttonDoorUnlock.enabled = NO;
+            [self.buttonDoorUnlock setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
+        }
+        else {
+            self.buttonDoorUnlock.enabled = YES;
+            [self.buttonDoorUnlock setTitleColor:[UIColor blueColor] forState:UIControlStateDisabled];
+            self.doorUnlockStatusLabel.text = @"";
         }
         
         NSString *str = [responseDict objectForKey:@"result"];
         
         if ([str isEqualToString:@"error"]) {
             UIAlertView *errorAlert;
-            errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Door not Unlocked" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Arduino Offline" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [errorAlert show];
         }
-
     }
 }
 
